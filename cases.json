@@ -1,0 +1,664 @@
+{
+  "cases": [
+    {
+      "id": 1,
+      "category": "Cardiovascular System",
+      "difficulty": "Qiyin",
+      "title": "Aorta ravog'i koarktatsiyasi (Coarctation of the Aorta)",
+      "patient": {
+        "name": "Chaqaloq",
+        "age": "3 kunlik",
+        "weight": "3.2 kg",
+        "chief_complaint": "Tug'ruqxonada vaziyatning og'irlashishi, yuqori tanada arterial bosim yuqoriligi va pastki tanada pulslashishning zaifligi."
+      },
+      "vitals": {
+        "temperature": "36.7°C",
+        "respiratory_rate": "42 /min",
+        "heart_rate": "150 /min",
+        "spo2": "95%",
+        "bp": "Qo'llarda 135/90 mmHg"
+      },
+      "labs": {
+        "echo_cg": "Chap 4-chi aorta ravogining notog'ri involyutsiyasi va duktus arteriozus to'qimasining descending aortal devorga o'rnashishi.",
+        "rentgen": "Qovurg'alarning 3-8-qovurg'alar osti qismida eroziya (notekislik) belgilari.",
+        "tor_infeksiya": "Salbiy (Negative)"
+      },
+      "options": [
+        "Chap 4-chi aorta ravogining meyordan ortiq involyutsiyasi va duktus arteriozus to'qimasining descending aortani toraytirishi",
+        "Duktus arteriozusning ochiq qolishi (PDA)",
+        "Qorinchalararo to'siq nuqsoni (VSD)",
+        "Fallot tetradasi"
+      ],
+      "correct_option_index": 0,
+      "correct_diagnosis": "Coarctation of the aorta (Aorta koarktatsiyasi)",
+      "explanation": "Chap 4-chi aorta ravogining meyordan ortiq yoki notog'ri involyutsiyasi hamda duktus arteriozus to'qimasining descending aorta devoriga qo'shilib qolib, uni toraytirishi yuqori tanada gipertenziya va pastki tanada gipotenziyaga, shuningdek kollateral qon aylanishi (interkostal arteriyalar kengayishi hisobiga) qovurg'alar eroziyasiga olib keladi."
+    },
+    {
+      "id": 2,
+      "category": "Gastrointestinal Tract",
+      "difficulty": "O'rta",
+      "title": "O'rta ichak rotatsiyasi nuqsoni va Volvulus",
+      "patient": {
+        "name": "O'g'il chaqaloq",
+        "age": "2 haftalik",
+        "weight": "3.5 kg",
+        "chief_complaint": "O't aralashgan (bilioz) qusish va qorin damishi."
+      },
+      "vitals": {
+        "temperature": "36.8°C",
+        "respiratory_rate": "48 /min",
+        "heart_rate": "165 /min",
+        "spo2": "98%",
+        "bp": "90/60 mmHg"
+      },
+      "labs": {
+        "qon_tahlili": "Metabolik alkaloz, gematokrit me'yordan yuqori",
+        "qorin_usi": "'Whirlpool' (girdob) belgisi, SMA va vena joylashuvi o'zgargan (vena arteriyaning chap tomonida)",
+        "elektrolitlar": "Kaliy va natriy miqdorining pasayishi"
+      },
+      "options": [
+        "O'rta ichakning kindik halqasidan qaytishida soat miliga teskari 270 graduslik rotatsiyaning buzilishi (Malrotation and Volvulus)",
+        "Pilorik stenoz",
+        "Divertikul Meckel",
+        "Hirshsprung kasalligi"
+      ],
+      "correct_option_index": 0,
+      "correct_diagnosis": "Malrotation and Midgut Volvulus",
+      "explanation": "O'rta ichakning kindik halqasidan qorin bo'shlig'iga qaytish jarayonida soat miliga teskari yo'nalishda to'liq 270 graduslik rotatsiyaning buzilishi intestinal fiksatsiyani izdan chiqarib, volvulusga olib keladi."
+    },
+    {
+      "id": 3,
+      "category": "Genitourinary System",
+      "difficulty": "Qiyin",
+      "title": "Paramezonefrik yo'llar nuqsoni (MRKH)",
+      "patient": {
+        "name": "Bemor qiz",
+        "age": "17 yosh",
+        "weight": "54 kg",
+        "chief_complaint": "Birlamchi amenoreya va pastki qorindagi davriy o'tkir og'riqlar."
+      },
+      "vitals": {
+        "temperature": "36.6°C",
+        "respiratory_rate": "18 /min",
+        "heart_rate": "72 /min",
+        "spo2": "99%",
+        "bp": "110/70 mmHg"
+      },
+      "labs": {
+        "ginekologik_korik": "Tashqi jinsiy a'zolar normal, qin uzunligi kalta (blind vagina), bachadon palpatsiyada aniqlanmaydi",
+        "mrt": "Ikkita alohida funksional uterin shoxlar va bir tomonlama buyrak ageneziyasi",
+        "gormonlar": "FSH, LH va Estrogen miqdori yoshga mos normada"
+      },
+      "options": [
+        "Paramezonefrik (Müllerian) yo'llarning proksimal qismlarining qo'shilmasligi yoki qisman rivojlanishi",
+        "Androgen rezistentlik sindromi",
+        "Tyorner sindromi (45,XO)",
+        "Gipotalamik amenoreya"
+      ],
+      "correct_option_index": 0,
+      "correct_diagnosis": "Müllerian duct anomaly / MRKH syndrome variant",
+      "explanation": "Paramezonefrik yo'llarning proksimal qismlari qo'shilmasa bachadon rivojlanmaydi, biroq tuxumdonlar normal ishlagani uchun ikkilamchi jinsiy belgilar to'liq saqlanadi. Buyrak ageneziyasi ureter naychasi va mezonefrik yo'lning embriologik yaqinligi bilan bog'liq."
+    },
+    {
+      "id": 4,
+      "category": "Head and Neck",
+      "difficulty": "O'rta",
+      "title": "Lab va tanglay yorig'i (Cleft Lip and Palate)",
+      "patient": {
+        "name": "Yangi tug'ilgan chaqaloq",
+        "age": "1 kunlik",
+        "weight": "3.1 kg",
+        "chief_complaint": "Yuqori lab va qattiq tanglayning qo'shilmaganligi hamda eshitish pasayishi."
+      },
+      "vitals": {
+        "temperature": "36.7°C",
+        "respiratory_rate": "40 /min",
+        "heart_rate": "140 /min",
+        "spo2": "97%",
+        "bp": "Aniqlanmagan"
+      },
+      "labs": {
+        "genetik_test": "Monogen yoki multifaktorial moyillik",
+        "audiometriya": "O'tkazuvchanlik turidagi eshitish pasayishi",
+        "ultratovush": "Boshqa tizimlarda jiddiy patologiyalar aniqlanmadi"
+      },
+      "options": [
+        "Medial burun o'simtasi va yuqori jag' o'simtasining o'zaro qo'shilmasligi",
+        "Mandibulyar o'simtalarning qo'shilishi buzilishi",
+        "Frontonasal o'simtaning haddan tashqari o'sishi",
+        "Ikkinchi jabra ravog'i gipoplaziyasi"
+      ],
+      "correct_option_index": 0,
+      "correct_diagnosis": "Cleft Lip and Palate",
+      "explanation": "Yuqori lab yorig'i medial burun o'simtasi va yuqori jag' o'simtasining o'zaro qo'shilmasligidan, qattiq tanglay yorig'i esa lateral tanglay o'simtalarining qo'shilmay qolishidan kelib chiqadi."
+    },
+    {
+      "id": 5,
+      "category": "Central Nervous System",
+      "difficulty": "Qiyin",
+      "title": "Ensefalosele (Neural Tube Defect)",
+      "patient": {
+        "name": "Homila (Prenatal)",
+        "age": "18 haftalik",
+        "weight": "N/A",
+        "chief_complaint": "Prenatal skriningda ensa qismida kistoz kengayish va miya to'qimasining bo'rtib chiqishi."
+      },
+      "vitals": {
+        "temperature": "N/A",
+        "respiratory_rate": "N/A",
+        "heart_rate": "145 /min",
+        "spo2": "N/A",
+        "bp": "N/A"
+      },
+      "labs": {
+        "ona_qoni_afp": "Me'yordan bir necha barobar yuqori",
+        "amniotik_suyuqlik": "Asetilxolinesteraza miqdori keskin oshgan",
+        "prenatal_usi": "Ensa sohasida miya pardalari va to'qimalarining kistoz bo'rtib chiqishi"
+      },
+      "options": [
+        "Kranial (oldingi) neuroporning homiladorlikning 4-haftasida to'liq yopilmasligi",
+        "Kaudal neuroporning 6-haftada ochiq qolishi",
+        "Neural crest hujayralari migratsiyasining buzilishi",
+        "Notoxordning erta parchalanishi"
+      ],
+      "correct_option_index": 0,
+      "correct_diagnosis": "Encephalocele",
+      "explanation": "Kranial (oldingi) neuroporning homiladorlikning 4-haftasida to'liq yopilmasligi Ensefalosele nuqsoniga sabab bo'ladi va doimo ona qonida AFP miqdorining oshishi bilan namoyon bo'ladi."
+    },
+    {
+      "id": 6,
+      "category": "Gastrointestinal Tract",
+      "difficulty": "Qiyin",
+      "title": "Meckel divertikuli (Vitelline duct anomaly)",
+      "patient": {
+        "name": "Bola",
+        "age": "2 yoshli",
+        "weight": "12 kg",
+        "chief_complaint": "To'satdan og'riqsiz to'q qizil/olcha rangli rektal qon ketish, qorin og'rig'i."
+      },
+      "vitals": {
+        "temperature": "37.0°C",
+        "respiratory_rate": "24 /min",
+        "heart_rate": "115 /min",
+        "spo2": "98%",
+        "bp": "100/65 mmHg"
+      },
+      "labs": {
+        "gammagrafiya": "Technetium-99m (Meckel scan) tekshiruvida ektopik me'da shilliq qavati aniqlandi",
+        "umumiy_qon": "Gemoglobin 85 g/l (gipoxrom anemiya)",
+        "axlat_tahlili": "Yashirin qon musbat"
+      },
+      "options": [
+        "Vitellin (omfalomezenterik) yo'lning to'liq obliteratsiyalanmasligi va qisman ochiq qolishi",
+        "Orqa ichakning proksimal qismi atreziyasi",
+        "Vitelin arteriyaning trombozi",
+        "Kindik halqasining yopilishi kechikishi"
+      ],
+      "correct_option_index": 0,
+      "correct_diagnosis": "Meckel Diverticulum",
+      "explanation": "Meckel divertikuli vitellin yo'lning proksimal qismi obliteratsiyalanmay qolishi natijasida hosil bo'ladi. Ko'pincha tarkibida ektopik me'da shilliq qavati bo'lib, kislota ajratishi hisobiga yaralanish va qon ketishga olib keladi."
+    },
+    {
+      "id": 7,
+      "category": "Cardiovascular System",
+      "difficulty": "O'rta",
+      "title": "Fallot tetradasi (Tetralogy of Fallot)",
+      "patient": {
+        "name": "Chaqaloq",
+        "age": "6 oylik",
+        "weight": "6.8 kg",
+        "chief_complaint": "Yig'laganda yoki emizish paytida terining ko'karishi (cyanotic spells), hansirash."
+      },
+      "vitals": {
+        "temperature": "36.6°C",
+        "respiratory_rate": "52 /min",
+        "heart_rate": "155 /min",
+        "spo2": "76%",
+        "bp": "90/55 mmHg"
+      },
+      "labs": {
+        "echo_cg": "O'pka arteriyasi stenozi, VSD, aorta astraddlingi va o'ng qorincha gipertrofiyasi",
+        "rentgen": "Yurak soyasi 'Boot-shaped' (etiksimon) shaklda",
+        "ekg": "O'ng o'q og'ishi va o'ng qorincha gipertrofiyasi"
+      },
+      "options": [
+        "Aortopulmonal to'siqning notekis spiral shaklda o'sishi (infundibulyar septumning oldinga va yuqoriga siljishi)",
+        "Endokard yostiqchalarining qo'shilmasligi",
+        "O'pka venalarining noto'g'ri oqib kelishi",
+        "Primundum atrial septal nuqson"
+      ],
+      "correct_option_index": 0,
+      "correct_diagnosis": "Tetralogy of Fallot",
+      "explanation": "Aortopulmonal to'siqning noto'g'ri bo'linishi va spiral septumning oldinga siljishi o'pka stenosiga va qorinchalararo to'siq nuqsoniga olib keladi, bu esa Fallot tetradasini keltirib chiqaradi."
+    },
+    {
+      "id": 8,
+      "category": "Genitourinary System",
+      "difficulty": "Qiyin",
+      "title": "Taqasimon buyrak (Horseshoe Kidney)",
+      "patient": {
+        "name": "Bemor yigit",
+        "age": "22 yosh",
+        "weight": "70 kg",
+        "chief_complaint": "Takroriy siydik yo'llari infeksiyasi va bel sohasida kuchsiz o'tmas og'riqlar."
+      },
+      "vitals": {
+        "temperature": "37.2°C",
+        "respiratory_rate": "16 /min",
+        "heart_rate": "78 /min",
+        "spo2": "98%",
+        "bp": "120/80 mmHg"
+      },
+      "labs": {
+        "siydik_tahlili": "Leukocyturia, bacteriuria (E. coli)",
+        "kt_urografiya": "Buyrak quyi qutblarining o'zaro qo'shilib ketishi va pastki mezenterial arteriya tomonidan tutilishi",
+        "kreatinin": "90 µmol/L (normal)"
+      },
+      "options": [
+        "Embrional davrda metanevrik blastemalarning pelvisda bir-biriga yaqinlashib, quyi qutblarining o'zaro qo'shilib ketishi",
+        "Mezonefrik yo'lning to'liq atrofiyasi",
+        "Ureter kurtagining ikkilanib o'sishi",
+        "Buyrakning noto'g'ri rotatsiyasi 90 gradusga"
+      ],
+      "correct_option_index": 0,
+      "correct_diagnosis": "Horseshoe Kidney",
+      "explanation": "Embrional migratsiya paytida metanevrik buyraklar pastki qutblari orqali bir-biriga qo'shilib qoladi. Ular pastga ko'tarilayotganda pastki mezenterial arteriyaga (IMA) ilinib qolib, yuqoriga to'liq chiqib keta olmaydi."
+    },
+    {
+      "id": 9,
+      "category": "Gastrointestinal Tract",
+      "difficulty": "O'rta",
+      "title": "Tug'ma pilorik stenoz (Congenital Pyloric Stenosis)",
+      "patient": {
+        "name": "Erkak chaqaloq",
+        "age": "3 haftalik",
+        "weight": "3.3 kg",
+        "chief_complaint": "Har safar emizgandan keyin favqora shaklida (projectile) o't aralashmagan qusish."
+      },
+      "vitals": {
+        "temperature": "36.5°C",
+        "respiratory_rate": "44 /min",
+        "heart_rate": "160 /min",
+        "spo2": "99%",
+        "bp": "85/50 mmHg"
+      },
+      "labs": {
+        "qon_gazlari": "Gipoxloremik, gipokalemiya va metabolik alkaloz",
+        "qorin_usi": "Pilorik mushak qavatining qalinlashishi (> 4 mm) va uzunligi ortishi (> 14 mm)",
+        "palpatsiya": "Qorin o'ng yuqori qismida 'olive-like' (zaytunsimon) zich tanacha seziladi"
+      },
+      "options": [
+        "Me'daning pilorik qismi sirkulyar mushaklarining gipertrofiyasi",
+        "Duodenal atreziya (apoptoz buzilishi)",
+        "Anular oshqozon osti bezi",
+        "Me'da devorining lizingi"
+      ],
+      "correct_option_index": 0,
+      "correct_diagnosis": "Congenital Hypertrophic Pyloric Stenosis",
+      "explanation": "Pilorik sirkulyar mushaklarning gipertrofiyasi me'da chiqishini to'sib qo'yadi. Natijada ovqat o'tmay, qusish va HCl yo'qotilishi hisobiga gipoxloremik metabolik alkaloz kelib chiqadi."
+    },
+    {
+      "id": 10,
+      "category": "Central Nervous System",
+      "difficulty": "Qiyin",
+      "title": "Spina bifida aperta / Myelomeningocele",
+      "patient": {
+        "name": "Yangi tug'ilgan chaqaloq",
+        "age": "1 kunlik",
+        "weight": "2.9 kg",
+        "chief_complaint": "Bel-dumg'aza sohasida terisiz ochiq qopcha shaklidagi nuqson, oyoqlarda harakatning sustligi."
+      },
+      "vitals": {
+        "temperature": "36.7°C",
+        "respiratory_rate": "38 /min",
+        "heart_rate": "135 /min",
+        "spo2": "97%",
+        "bp": "Normal"
+      },
+      "labs": {
+        "mrt_orqa_miya": "Lumbosakral sohada meninges va orqa miya elementlarining ochiq qopcha ichida bo'rtib chiqishi",
+        "ona_qoni": "Alfa-fetoprotein (AFP) homiladorlik davrida keskin yuqori",
+        "bosh_mrt": "Chiari II malformatsiyasi va gidrotsefaliya belgilari"
+      },
+      "options": [
+        "Kaudal neuroporning homiladorlikning 4-haftasida (26-28 kunlarda) yopilmasligi",
+        "Kranial neuroporning yopilishi buzilishi",
+        "Notokordning ikkiga bo'linishi",
+        "Neural crest hujayralari yetishmovchiligi"
+      ],
+      "correct_option_index": 0,
+      "correct_diagnosis": "Spina Bifida Aperta (Myelomeningocele)",
+      "explanation": "Kaudal neuroporning to'liq yopilmasligi oqibatida orqa miya va uning qobig'i ochiq qoladi. Folat kislotasi tanqisligi asosiy etiologik omil hisoblanadi."
+    },
+    {
+      "id": 11,
+      "category": "Head and Neck",
+      "difficulty": "O'rta",
+      "title": "Brankial kista / fistula (Branchial cleft anomaly)",
+      "patient": {
+        "name": "O'smir bola",
+        "age": "14 yosh",
+        "weight": "48 kg",
+        "chief_complaint": "Bo'yinning yon yuzasida (SCM mushak oldingi chegarasida) og'riqsiz yumshoq shish va suyuqlik oqishi."
+      },
+      "vitals": {
+        "temperature": "36.8°C",
+        "respiratory_rate": "18 /min",
+        "heart_rate": "76 /min",
+        "spo2": "99%",
+        "bp": "115/75 mmHg"
+      },
+      "labs": {
+        "ultratovush": "Bo'yinda kistoz bo'shliq va traektoriya bo'ylab oqma yo'l (fistula) aniqlandi",
+        "sitologiya": "Kista suyuqligida ko'plab qavatli yassi epiteliy hujayralari va xolesterin kristallari",
+        "bakteriologiya": "Ba'zida ikkilamchi infeksiya (Staphylococcus aureus)"
+      },
+      "options": [
+        "Ikkinchi jabra yorig'ining (second pharyngeal cleft) to'liq obliteratsiyalanmasligi",
+        "Birinchi jabra xaltachasining nuqsoni",
+        "Uchinchi jabra ravog'ining giperplaziyasi",
+        "Tiroid-til yo'lining yopilmasligi"
+      ],
+      "correct_option_index": 0,
+      "correct_diagnosis": "Second Branchial Cleft Cyst / Fistula",
+      "explanation": "Ikkinchi jabra yorig'i embrional davrda to'liq yopilib ketmasa, qoldiqlar o'rnida kista yoki fistula hosil bo'ladi. Odatda SCM mushagining oldingi chetida joylashadi."
+    },
+    {
+      "id": 12,
+      "category": "Endocrine System",
+      "difficulty": "Qiyin",
+      "title": "Thyroglossal duct cyst",
+      "patient": {
+        "name": "Qizaloq",
+        "age": "8 yosh",
+        "weight": "26 kg",
+        "chief_complaint": "Bo'yinning oldingi o'rta chizig'ida, yutganda va tilni chiqarganda yuqoriga harakatlanuvchi yumaloq shish."
+      },
+      "vitals": {
+        "temperature": "36.7°C",
+        "respiratory_rate": "20 /min",
+        "heart_rate": "84 /min",
+        "spo2": "99%",
+        "bp": "110/70 mmHg"
+      },
+      "labs": {
+        "usi_boyin": "Til suyagi (hyoid bone) yaqinida anechogen kistoz hosil",
+        "qalqonsimon_bezi_usi": "Normal joylashgan va funksiyasi saqlangan qalqonsimon bez",
+        "punktat": "Mukoid suyuqlik va tirotsitlar"
+      },
+      "options": [
+        "Embrional davrda qalqonsimon bezning til tubidan bo'yinga tushish yo'lining (thyroglossal duct) yo'qolmay qolishi",
+        "Ultimobronxial tanachalarning migratsiya buzilishi",
+        "Birinchi jabra xaltachasining kistoz kengayishi",
+        "Paratsitol andokrin qoldig'i"
+      ],
+      "correct_option_index": 0,
+      "correct_diagnosis": "Thyroglossal Duct Cyst",
+      "explanation": "Qalqonsimon bez tildagi foramen caecumdan pastga bo'yinga ko'chib o'tishida thyroglossal yo'l obliteratsiya bo'lishi kerak. Agar yo'l qolib ketsa, kista hosil bo'ladi va tilni chiqarganda yuqoriga tortiladi."
+    },
+    {
+      "id": 13,
+      "category": "Cardiovascular System",
+      "difficulty": "O'rta",
+      "title": "Ochiq arterial nay (PDA)",
+      "patient": {
+        "name": "Chaqaloq (Chala tug'ilgan)",
+        "age": "5 kunlik",
+        "weight": "1.8 kg",
+        "chief_complaint": "Yurak sohasida uzluksiz 'machinery' shovqin, periferik pulsimon tebranish."
+      },
+      "vitals": {
+        "temperature": "36.4°C",
+        "respiratory_rate": "58 /min",
+        "heart_rate": "170 /min",
+        "spo2": "91%",
+        "bp": "105/40 mmHg (keng pulslar)"
+      },
+      "labs": {
+        "echo_cg": "Aorta va o'pka arteriyasi tutashuvida qon oqimi (chapdan o'ngga shunt)",
+        "rentgen": "O'pka qon tomir naqshining kuchayishi va yurak soyasining kengayishi",
+        "qon_gazlari": "Gipoksiya va yengil respirator atsidoz"
+      },
+      "options": [
+        "Oltinchi aorta ravog'ining distal qismi (ductus arteriosus) tug'ilgandan keyin yopilmasligi",
+        "To'rtinchi aorta ravog'ining atrofiyasi",
+        "O'pka trubasining atreziyasi",
+        "Bochkalasimon aorta yoyi"
+      ],
+      "correct_option_index": 0,
+      "correct_diagnosis": "Patent Ductus Arteriosus (PDA)",
+      "explanation": "Duktus arteriosus (6-aorta ravog'idan hosil bo'ladi) tug'ilgandan keyin prostaglandinlar pasayishi va kislorod ta'sirida yopilishi kerak. Chala tug'ilganlarda bu jarayon buzilib PDA kelib chiqadi."
+    },
+    {
+      "id": 14,
+      "category": "Gastrointestinal Tract",
+      "difficulty": "Qiyin",
+      "title": "Duodenal atreziya (Duodenal Atresia)",
+      "patient": {
+        "name": "Yangi tug'ilgan chaqaloq",
+        "age": "1 kunlik",
+        "weight": "3.0 kg",
+        "chief_complaint": "Tug'ilgandan keyingi bir necha soat ichida o't aralashgan qusish, mekoniy chiqmagan."
+      },
+      "vitals": {
+        "temperature": "36.7°C",
+        "respiratory_rate": "42 /min",
+        "heart_rate": "145 /min",
+        "spo2": "98%",
+        "bp": "Normal"
+      },
+      "labs": {
+        "qorin_rentgen": "'Double bubble' belgisi - me'da va 12-barmoqli ichakning havo bilan kengayishi, pastda gaz yo'q",
+        "genetik": "Down sindromi (Trisomiya 21) bilan yuqori assotsiatsiya",
+        "elektrolitlar": "Dehidratatsiya belgilari"
+      },
+      "options": [
+        "Embrional davrda 12-barmoqli ichak lumenining rekanalizatsiya jarayoni buzilishi",
+        "O'rta ichak rotatsiyasining to'liq yo'qligi",
+        "Me'da osti bezi halqasining siqishi",
+        "Vitelin yo'lning qattiq tortishi"
+      ],
+      "correct_option_index": 0,
+      "correct_diagnosis": "Duodenal Atresia",
+      "explanation": "Homiladorlikning erta davrida 12-barmoqli ichak epiteliy bilan to'lib, keyinchalik rekanalizatsiya bo'lishi kerak. Shu jarayon buzilsa atreziya yuzaga keladi."
+    },
+    {
+      "id": 15,
+      "category": "Genitourinary System",
+      "difficulty": "O'rta",
+      "title": "Gipospadiya (Hypospadias)",
+      "patient": {
+        "name": "O'g'il bola",
+        "age": "1 yoshli",
+        "weight": "10 kg",
+        "chief_complaint": "Siydik chiqarish kanali teshigining olat pastki (ventral) yuzasida joylashganligi."
+      },
+      "vitals": {
+        "temperature": "36.6°C",
+        "respiratory_rate": "24 /min",
+        "heart_rate": "110 /min",
+        "spo2": "99%",
+        "bp": "Normal"
+      },
+      "labs": {
+        "uletrologik_korik": "Siydik yo'li meatusi ventral yuzada, olatning egilishi (chordee) mavjud",
+        "buyrak_usi": "Qo'shimcha anatomik nuqsonlar aniqlanmadi",
+        "karyotip": "46,XY (normal erkak)"
+      },
+      "options": [
+        "Olat osti foldlarining (urethral folds) o'zaro to'liq qo'shilmasligi",
+        "Genital tuberkulaning rivojlanmay qolishi",
+        "Labioscrotal shishishlarning qo'shilib ketishi",
+        "Testikulalarning tushmasi (kriptorxizm)"
+      ],
+      "correct_option_index": 0,
+      "correct_diagnosis": "Hypospadias",
+      "explanation": "Gipospadiya – uretral foldlarning o'zaro qo'shilishi buzilishi natijasida meatusning olatning ventral yuzasiga ochilishidir. Gormonal (androgen) yetishmovchilik ham sabab bo'lishi mumkin."
+    },
+    {
+      "id": 16,
+      "category": "Central Nervous System",
+      "difficulty": "Qiyin",
+      "title": "Anensefaliya (Anencephaly)",
+      "patient": {
+        "name": "Homila (Prenatal)",
+        "age": "16 haftalik",
+        "weight": "N/A",
+        "chief_complaint": "Prenatal skriningda kalla suyagi gumbazi va bosh miya yarim sharlarining yo'qligi."
+      },
+      "vitals": {
+        "temperature": "N/A",
+        "respiratory_rate": "N/A",
+        "heart_rate": "140 /min",
+        "spo2": "N/A",
+        "bp": "N/A"
+      },
+      "labs": {
+        "ona_qoni_afp": "Me'yordan juda yuqori (ekstremal baland)",
+        "prenatal_usi": "Bosh miya va kalla suyagi tepa qismining mavjud emasligi, polihidramnion",
+        "amniotsentez": "Asetilxolinesteraza musbat"
+      },
+      "options": [
+        "Kranial neuroporning homiladorlikning 4-haftasida umuman yopilmasligi",
+        "Kaudal neuroporning ochiq qolishi",
+        "Mezoderma proliferatsiyasining buzilishi",
+        "Xordaning erta degeneratsiyasi"
+      ],
+      "correct_option_index": 0,
+      "correct_diagnosis": "Anencephaly",
+      "explanation": "Kranial neuroporning yopilmasligi natijasida oldingi miya va kalla suyagi rivojlanmaydi. Homilador ayollarda polihidramnion va qonda AFP miqdorining keskin oshishi kuzatiladi."
+    },
+    {
+      "id": 17,
+      "category": "Gastrointestinal Tract",
+      "difficulty": "Qiyin",
+      "title": "Hirshsprung kasalligi (Congenital Aganglionic Megacolon)",
+      "patient": {
+        "name": "Chaqaloq",
+        "age": "4 kunlik",
+        "weight": "3.2 kg",
+        "chief_complaint": "Tug'ilgandan beri 48 soat ichida mekoniy chiqmagan, qorin qattiq dam olgan."
+      },
+      "vitals": {
+        "temperature": "36.8°C",
+        "respiratory_rate": "45 /min",
+        "heart_rate": "150 /min",
+        "spo2": "97%",
+        "bp": "90/60 mmHg"
+      },
+      "labs": {
+        "irrigoskopiya": "Sigmasimon va to'g'ri ichakning toraygan qismi va yuqori qismida gigant kengayish",
+        "rektal_biopsiya": "Auerbach va Meissner nerv chigallarida ganglion hujayralarining yo'qligi",
+        "umumiy_qon": "Leykotsitoz (enterokolit xavfi)"
+      },
+      "options": [
+        "Neural crest hujayralarining orqa ichak devoriga migratsiyasining to'xtab qolishi",
+        "Endodermal qatlamning o'smay qolishi",
+        "Ichak sirkulyar mushaklarining atrofiya bo'lishi",
+        "Parazitar zararlanish"
+      ],
+      "correct_option_index": 0,
+      "correct_diagnosis": "Hirschsprung Disease",
+      "explanation": "Neural crest hujayralari ichak devoriga ko'chib o'tishda to'xtab qolsa, distal ichak qismida ganglion hujayralari bo'lmaydi (aganglioz). Bu peristaltika bo'lmasligiga va megakolon rivojlanishiga olib keladi."
+    },
+    {
+      "id": 18,
+      "category": "Musculoskeletal System",
+      "difficulty": "O'rta",
+      "title": "Tug'ma son suyagi chiqishi (DDH)",
+      "patient": {
+        "name": "Chaqaloq qiz",
+        "age": "2 oylik",
+        "weight": "4.5 kg",
+        "chief_complaint": "Profilaktik ko'rikda oyoq terisi burmalarining nosimmetrikligi va chap songa harakat berganda 'klik' tovushi."
+      },
+      "vitals": {
+        "temperature": "36.6°C",
+        "respiratory_rate": "35 /min",
+        "heart_rate": "130 /min",
+        "spo2": "99%",
+        "bp": "Normal"
+      },
+      "labs": {
+        "usi_tos_son": "Acetabulum yassi va son suyagi boshining chiqib ketishi (Barlow va Ortolani testlari musbat)",
+        "rentgen": "4 oylikdan keyin tasdiqlash uchun ishlatiladi",
+        "klinik_belgi": "Galeazzi belgisi (tizzalar teng emas)"
+      },
+      "options": [
+        "Acetabulum chuqurligining va son suyagi boshi ligamentar apparatining yetarli rivojlanmasligi",
+        "Son suyagi boshining aseptik nekrozi",
+        "Kindik venasining noto'g'ri o'sishi",
+        "Boldir suyaklari displaziyasi"
+      ],
+      "correct_option_index": 0,
+      "correct_diagnosis": "Developmental Dysplasia of the Hip (DDH)",
+      "explanation": "Acetabulum va son bo'g'imi embrional yoki perinatal davrda bo'g'im kapsulasi bo'shashishi hamda kosaning yassi bo'lishi tufayli son suyagi boshining chiqishiga moyil bo'ladi."
+    },
+    {
+      "id": 19,
+      "category": "Genitourinary System",
+      "difficulty": "Qiyin",
+      "title": "Urakus qoldig'i anomalari (Urachal anomaly)",
+      "patient": {
+        "name": "Bemor bola",
+        "age": "5 yosh",
+        "weight": "18 kg",
+        "chief_complaint": "Kindik sohasidan tiniq/shilliq suyuqlik ajralishi va kindik atrofida yallig'lanish."
+      },
+      "vitals": {
+        "temperature": "37.1°C",
+        "respiratory_rate": "22 /min",
+        "heart_rate": "90 /min",
+        "spo2": "99%",
+        "bp": "110/70 mmHg"
+      },
+      "labs": {
+        "fistulografiya": "Kindikdan siydik pufagi gumbazigacha bo'lgan yo'lning saqlanib qolgani",
+        "usi_qorin": "Kindik va qovuq orasida kistoz hosil yoki oqma yo'l",
+        "siydik_tahlili": "Oqindi tahlilida siydik elementlari yoki yallig'lanish hujayralari"
+      },
+      "options": [
+        "Embrional allantoisning qismi bo'lgan urakus nayining tug'ilgandan keyin to'liq obliteratsiyalanmasligi",
+        "Vitellin nayining ochiq qolishi",
+        "Ureter kurtagining ikkilanishi",
+        "Mezonefrik yo'lning kistoz kengayishi"
+      ],
+      "correct_option_index": 0,
+      "correct_diagnosis": "Urachal Anomaly / Patent Urachus",
+      "explanation": "Homiladorlik davrida qovuqni kindik bilan bog'lab turuvchi urakus nayi tug'ilgandan keyin yopilib, median umbilical ligamentga aylanishi kerak. Yopilmasa urakus kistasi yoki oqmasi hosil bo'ladi."
+    },
+    {
+      "id": 20,
+      "category": "Cardiovascular System",
+      "difficulty": "Qiyin",
+      "title": "Truncus Arteriosus",
+      "patient": {
+        "name": "Chaqaloq",
+        "age": "2 kunlik",
+        "weight": "3.1 kg",
+        "chief_complaint": "Tug'ruqxonada aniqlangan kuchli tsianoz, yurakda qo'pol sistolik shovqin va yurak yetishmovchiligi."
+      },
+      "vitals": {
+        "temperature": "36.5°C",
+        "respiratory_rate": "55 /min",
+        "heart_rate": "160 /min",
+        "spo2": "78%",
+        "bp": "80/45 mmHg"
+      },
+      "labs": {
+        "echo_cg": "Yurakdan bitta yirik umumiy qon tomir chiqib, ham tizimli, ham o'pka, ham koronar qon aylanishini ta'minlaydi; VSD mavjud",
+        "rentgen": "O'pka qon oqimining keskin oshishi va yurak soyasining kattalashishi",
+        "ekg": "Ikki qorincha gipertrofiyasi"
+      },
+      "options": [
+        "Aortopulmonal septaning truncus arteriosus ichida umuman rivojlanmagani va bo'linmagani",
+        "Bland-White-Garland sindromi",
+        "Tricuspid atreziya",
+        "Ebstein anomaliyasi"
+      ],
+      "correct_option_index": 0,
+      "correct_diagnosis": "Truncus Arteriosus",
+      "explanation": "Neural crest hujayralarining migratsiyasi buzilishi natijasida truncus arteriosusni aorta va o'pka arteriyasiga bo'luvchi aortopulmonal septum hosil bo'lmaydi. Natijada bitta umumiy yirik tomir yurakdan chiqadi va har doim VSD bilan birga keladi."
+    }
+  ]
+}
