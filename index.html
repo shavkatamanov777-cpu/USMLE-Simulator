@@ -1,290 +1,214 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CardioPed Pro — Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #0a0e1a; --bg2: #0f1420; --glass: rgba(255,255,255,0.03);
-            --border: rgba(255,255,255,0.08); --t1: #fff; --t2: #8b92a8; --t3: #5a6178;
-            --cyan: #00d4ff; --teal: #00f5a0; --purple: #7c3aed; --red: #ef4444;
-            --green: #10b981; --orange: #f59e0b;
-            --grad: linear-gradient(135deg, #00d4ff, #00f5a0);
-        }
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--t1); min-height:100vh; }
-        .mesh { position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
-        .mesh::before { content:''; position:absolute; width:600px; height:600px; background:radial-gradient(circle,rgba(0,212,255,0.12),transparent 70%); top:-200px; left:-200px; animation:f1 20s ease-in-out infinite; }
-        .mesh::after { content:''; position:absolute; width:500px; height:500px; background:radial-gradient(circle,rgba(124,58,237,0.1),transparent 70%); bottom:-150px; right:-150px; animation:f2 25s ease-in-out infinite; }
-        @keyframes f1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(80px,60px)} }
-        @keyframes f2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-60px,-40px)} }
-        .grid { position:fixed; inset:0; background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px); background-size:50px 50px; z-index:0; pointer-events:none; }
-        .layout { display:grid; grid-template-columns:250px 1fr; min-height:100vh; position:relative; z-index:1; }
-        .sidebar { background:rgba(10,14,26,0.85); backdrop-filter:blur(20px); border-right:1px solid var(--border); padding:24px 16px; position:sticky; top:0; height:100vh; overflow-y:auto; display:flex; flex-direction:column; }
-        .logo { display:flex; align-items:center; gap:10px; margin-bottom:32px; padding:0 8px; }
-        .logo-mark { width:38px; height:38px; background:var(--grad); border-radius:10px; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(0,212,255,0.3); }
-        .logo-mark svg { width:20px; height:20px; color:#0a0e1a; }
-        .logo h1 { font-size:1rem; font-weight:700; background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-        .logo p { font-size:0.65rem; color:var(--t3); text-transform:uppercase; letter-spacing:0.05em; }
-        .nav-label { font-size:0.65rem; color:var(--t3); text-transform:uppercase; letter-spacing:0.1em; padding:0 12px; margin:20px 0 8px; font-weight:600; }
-        .nav-item { display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:10px; color:var(--t2); text-decoration:none; font-size:0.85rem; font-weight:500; transition:all 0.2s; cursor:pointer; margin-bottom:2px; position:relative; }
-        .nav-item:hover { background:var(--glass); color:var(--t1); }
-        .nav-item.active { background:rgba(0,212,255,0.08); color:var(--cyan); }
-        .nav-item.active::before { content:''; position:absolute; left:-16px; top:50%; transform:translateY(-50%); width:3px; height:20px; background:var(--grad); border-radius:0 3px 3px 0; }
-        .nav-item svg { width:16px; height:16px; flex-shrink:0; }
-        .nav-badge { margin-left:auto; background:var(--grad); color:#0a0e1a; font-size:0.6rem; font-weight:700; padding:2px 7px; border-radius:10px; }
-        .sidebar-footer { margin-top:auto; padding-top:16px; border-top:1px solid var(--border); }
-        .user-card { display:flex; align-items:center; gap:10px; padding:10px; border-radius:10px; background:var(--glass); }
-        .user-avatar { width:32px; height:32px; border-radius:8px; background:linear-gradient(135deg,#7c3aed,#ec4899); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.75rem; }
-        .user-name { font-size:0.8rem; font-weight:600; }
-        .user-role { font-size:0.65rem; color:var(--t3); }
-        .main { padding:28px 36px; overflow-y:auto; }
-        .topbar { display:flex; justify-content:space-between; align-items:center; margin-bottom:28px; }
-        .topbar h2 { font-size:1.5rem; font-weight:700; letter-spacing:-0.02em; }
-        .topbar p { color:var(--t2); font-size:0.85rem; margin-top:2px; }
-        .btn { padding:9px 16px; border-radius:10px; font-size:0.82rem; font-weight:600; border:none; cursor:pointer; transition:all 0.2s; display:inline-flex; align-items:center; gap:6px; font-family:inherit; }
-        .btn-primary { background:var(--grad); color:#0a0e1a; box-shadow:0 4px 14px rgba(0,212,255,0.25); }
-        .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,212,255,0.35); }
-        .btn-ghost { background:var(--glass); color:var(--t1); border:1px solid var(--border); }
-        .btn-ghost:hover { background:rgba(255,255,255,0.06); }
-        .btn svg { width:14px; height:14px; }
-        .stats { display:grid; grid-template-columns:2fr 1fr 1fr; gap:16px; margin-bottom:28px; }
-        .scard { background:var(--glass); backdrop-filter:blur(20px); border:1px solid var(--border); border-radius:16px; padding:24px; transition:all 0.3s; position:relative; overflow:hidden; }
-        .scard:hover { transform:translateY(-3px); border-color:rgba(255,255,255,0.12); }
-        .scard::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent); }
-        .scard-main { background:linear-gradient(135deg,rgba(0,212,255,0.06),rgba(124,58,237,0.06)); border-color:rgba(0,212,255,0.12); }
-        .scard-head { display:flex; justify-content:space-between; align-items:start; margin-bottom:16px; }
-        .sicon { width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; }
-        .sicon svg { width:20px; height:20px; }
-        .sicon-c { background:rgba(0,212,255,0.1); color:var(--cyan); }
-        .sicon-g { background:rgba(16,185,129,0.1); color:var(--green); }
-        .sicon-p { background:rgba(124,58,237,0.1); color:var(--purple); }
-        .sval { font-size:2.2rem; font-weight:800; letter-spacing:-0.03em; font-family:'JetBrains Mono',monospace; line-height:1; margin-bottom:4px; }
-        .slbl { color:var(--t2); font-size:0.82rem; font-weight:500; }
-        .ring-wrap { display:flex; align-items:center; gap:16px; margin-top:12px; }
-        .ring { transform:rotate(-90deg); }
-        .ring-bg { stroke:rgba(255,255,255,0.05); }
-        .ring-fill { stroke:url(#gr); stroke-linecap:round; transition:stroke-dashoffset 1s ease; }
-        .section { background:var(--glass); backdrop-filter:blur(20px); border:1px solid var(--border); border-radius:16px; padding:24px; margin-bottom:20px; }
-        .sec-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; }
-        .sec-title { display:flex; align-items:center; gap:10px; font-size:1.05rem; font-weight:700; }
-        .sec-icon { width:28px; height:28px; border-radius:7px; display:flex; align-items:center; justify-content:center; }
-        .sec-icon svg { width:14px; height:14px; }
-        .tabs { display:flex; gap:4px; margin-bottom:20px; padding:4px; background:rgba(255,255,255,0.02); border-radius:10px; border:1px solid var(--border); overflow-x:auto; }
-        .tab { padding:7px 14px; border-radius:7px; font-size:0.78rem; font-weight:500; color:var(--t2); cursor:pointer; transition:all 0.2s; white-space:nowrap; border:none; background:transparent; font-family:inherit; }
-        .tab:hover { color:var(--t1); }
-        .tab.active { background:var(--grad); color:#0a0e1a; font-weight:600; }
-        .cases { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:14px; }
-        .ccard { background:var(--bg2); border:1px solid var(--border); border-radius:14px; padding:20px; text-decoration:none; color:inherit; transition:all 0.3s; position:relative; overflow:hidden; display:block; }
-        .ccard::before { content:''; position:absolute; top:0; left:0; width:3px; height:100%; background:var(--grad); opacity:0; transition:opacity 0.3s; }
-        .ccard:hover { transform:translateY(-3px); border-color:rgba(0,212,255,0.25); box-shadow:0 16px 32px rgba(0,0,0,0.3); }
-        .ccard:hover::before { opacity:1; }
-        .ccard-top { display:flex; justify-content:space-between; align-items:start; margin-bottom:12px; }
-        .cnum { font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:600; color:var(--t3); }
-        .cbadge { padding:3px 9px; border-radius:16px; font-size:0.65rem; font-weight:600; }
-        .b-q { background:rgba(239,68,68,0.1); color:var(--red); }
-        .b-o { background:rgba(245,158,11,0.1); color:var(--orange); }
-        .b-d { background:rgba(16,185,129,0.1); color:var(--green); }
-        .ctitle { font-size:0.95rem; font-weight:600; line-height:1.4; margin-bottom:12px; }
-        .cmeta { display:flex; gap:14px; padding-top:12px; border-top:1px solid var(--border); font-size:0.75rem; color:var(--t2); }
-        .cmeta svg { width:12px; height:12px; color:var(--t3); }
-        .cmeta-item { display:flex; align-items:center; gap:4px; }
-        .carrow { position:absolute; right:18px; bottom:18px; width:26px; height:26px; border-radius:7px; background:var(--glass); display:flex; align-items:center; justify-content:center; opacity:0; transform:translateX(-6px); transition:all 0.3s; }
-        .carrow svg { width:12px; height:12px; }
-        .ccard:hover .carrow { opacity:1; transform:translateX(0); background:var(--grad); color:#0a0e1a; }
-        .weak-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:10px; }
-        .weak-item { background:rgba(239,68,68,0.04); border:1px solid rgba(239,68,68,0.1); border-radius:10px; padding:14px; display:flex; align-items:center; gap:12px; }
-        .weak-icon { width:32px; height:32px; border-radius:8px; background:rgba(239,68,68,0.1); display:flex; align-items:center; justify-content:center; color:var(--red); flex-shrink:0; }
-        .weak-icon svg { width:16px; height:16px; }
-        .weak-name { font-size:0.82rem; font-weight:600; }
-        .weak-count { font-size:0.7rem; color:var(--red); font-weight:600; }
-        .empty { text-align:center; padding:36px; color:var(--t3); font-size:0.9rem; }
-        .page { display:none; }
-        .page.active { display:block; }
-        .hist-item { background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:16px 20px; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center; transition:all 0.2s; }
-        .hist-item:hover { border-color:rgba(255,255,255,0.15); }
-        .hist-info { flex:1; }
-        .hist-title { font-size:0.9rem; font-weight:600; margin-bottom:4px; }
-        .hist-date { font-size:0.72rem; color:var(--t3); }
-        .hist-result { padding:4px 12px; border-radius:16px; font-size:0.72rem; font-weight:600; }
-        .hist-correct { background:rgba(16,185,129,0.12); color:var(--green); }
-        .hist-wrong { background:rgba(239,68,68,0.12); color:var(--red); }
-        @media(max-width:900px) {
-            .layout { grid-template-columns:1fr; }
-            .sidebar { position:fixed; left:-260px; width:250px; z-index:100; transition:left 0.3s; }
-            .sidebar.open { left:0; }
-            .stats { grid-template-columns:1fr; }
-            .scard-main { grid-column:span 1; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CardioPed Pro — USMLE Simulator</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0e1a;--bg2:#0f1420;--glass:rgba(255,255,255,0.03);--border:rgba(255,255,255,0.08);--t1:#fff;--t2:#8b92a8;--t3:#5a6178;--cyan:#00d4ff;--green:#10b981;--red:#ef4444;--orange:#f59e0b;--purple:#7c3aed;--grad:linear-gradient(135deg,#00d4ff,#00f5a0);}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t1);min-height:100vh;}
+.mesh{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.mesh::before{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(0,212,255,0.12),transparent 70%);top:-200px;left:-200px;animation:f1 20s ease-in-out infinite;}
+.mesh::after{content:'';position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(124,58,237,0.1),transparent 70%);bottom:-150px;right:-150px;animation:f2 25s ease-in-out infinite;}
+@keyframes f1{0%,100%{transform:translate(0,0)}50%{transform:translate(80px,60px)}}
+@keyframes f2{0%,100%{transform:translate(0,0)}50%{transform:translate(-60px,-40px)}}
+.grid{position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);background-size:50px 50px;z-index:0;pointer-events:none;}
+.layout{display:grid;grid-template-columns:240px 1fr;min-height:100vh;position:relative;z-index:1;}
+.sidebar{background:rgba(10,14,26,0.85);backdrop-filter:blur(20px);border-right:1px solid var(--border);padding:24px 16px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;}
+.logo{display:flex;align-items:center;gap:10px;margin-bottom:32px;padding:0 8px;}
+.logo-mark{width:38px;height:38px;background:var(--grad);border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,212,255,0.3);}
+.logo-mark svg{width:20px;height:20px;color:#0a0e1a;}
+.logo h1{font-size:1rem;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.logo p{font-size:0.65rem;color:var(--t3);text-transform:uppercase;letter-spacing:0.05em;}
+.nav-label{font-size:0.65rem;color:var(--t3);text-transform:uppercase;letter-spacing:0.1em;padding:0 12px;margin:20px 0 8px;font-weight:600;}
+.nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;color:var(--t2);text-decoration:none;font-size:0.85rem;font-weight:500;transition:all 0.2s;cursor:pointer;margin-bottom:2px;position:relative;}
+.nav-item:hover{background:var(--glass);color:var(--t1);}
+.nav-item.active{background:rgba(0,212,255,0.08);color:var(--cyan);}
+.nav-item.active::before{content:'';position:absolute;left:-16px;top:50%;transform:translateY(-50%);width:3px;height:20px;background:var(--grad);border-radius:0 3px 3px 0;}
+.nav-item svg{width:16px;height:16px;flex-shrink:0;}
+.nav-badge{margin-left:auto;background:var(--grad);color:#0a0e1a;font-size:0.6rem;font-weight:700;padding:2px 7px;border-radius:10px;}
+.sidebar-footer{margin-top:auto;padding-top:16px;border-top:1px solid var(--border);}
+.user-card{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;background:var(--glass);}
+.user-avatar{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#7c3aed,#ec4899);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.75rem;}
+.user-name{font-size:0.8rem;font-weight:600;}
+.user-role{font-size:0.65rem;color:var(--t3);}
+.main{padding:28px 36px;overflow-y:auto;}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;}
+.topbar h2{font-size:1.5rem;font-weight:700;letter-spacing:-0.02em;}
+.topbar p{color:var(--t2);font-size:0.85rem;margin-top:2px;}
+.btn{padding:9px 16px;border-radius:10px;font-size:0.82rem;font-weight:600;border:none;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:6px;font-family:inherit;}
+.btn-primary{background:var(--grad);color:#0a0e1a;box-shadow:0 4px 14px rgba(0,212,255,0.25);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,212,255,0.35);}
+.btn-ghost{background:var(--glass);color:var(--t1);border:1px solid var(--border);}
+.btn-ghost:hover{background:rgba(255,255,255,0.06);}
+.btn svg{width:14px;height:14px;}
+.stats{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;margin-bottom:28px;}
+.scard{background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:16px;padding:24px;transition:all 0.3s;position:relative;overflow:hidden;}
+.scard:hover{transform:translateY(-3px);border-color:rgba(255,255,255,0.12);}
+.scard::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);}
+.scard-main{background:linear-gradient(135deg,rgba(0,212,255,0.06),rgba(124,58,237,0.06));border-color:rgba(0,212,255,0.12);}
+.scard-head{display:flex;justify-content:space-between;align-items:start;margin-bottom:16px;}
+.sicon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;}
+.sicon svg{width:20px;height:20px;}
+.sicon-c{background:rgba(0,212,255,0.1);color:var(--cyan);}
+.sicon-g{background:rgba(16,185,129,0.1);color:var(--green);}
+.sicon-p{background:rgba(124,58,237,0.1);color:var(--purple);}
+.sval{font-size:2.2rem;font-weight:800;letter-spacing:-0.03em;font-family:'JetBrains Mono',monospace;line-height:1;margin-bottom:4px;}
+.slbl{color:var(--t2);font-size:0.82rem;font-weight:500;}
+.ring-wrap{display:flex;align-items:center;gap:16px;margin-top:12px;}
+.ring{transform:rotate(-90deg);}
+.ring-bg{stroke:rgba(255,255,255,0.05);}
+.ring-fill{stroke:url(#gr);stroke-linecap:round;transition:stroke-dashoffset 1s ease;}
+.section{background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:20px;}
+.sec-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
+.sec-title{display:flex;align-items:center;gap:10px;font-size:1.05rem;font-weight:700;}
+.sec-icon{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;}
+.sec-icon svg{width:14px;height:14px;}
+.tabs{display:flex;gap:4px;margin-bottom:20px;padding:4px;background:rgba(255,255,255,0.02);border-radius:10px;border:1px solid var(--border);overflow-x:auto;}
+.tab{padding:7px 14px;border-radius:7px;font-size:0.78rem;font-weight:500;color:var(--t2);cursor:pointer;transition:all 0.2s;white-space:nowrap;border:none;background:transparent;font-family:inherit;}
+.tab:hover{color:var(--t1);}
+.tab.active{background:var(--grad);color:#0a0e1a;font-weight:600;}
+.cases{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;}
+.ccard{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:20px;text-decoration:none;color:inherit;transition:all 0.3s;position:relative;overflow:hidden;display:block;}
+.ccard::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--grad);opacity:0;transition:opacity 0.3s;}
+.ccard:hover{transform:translateY(-3px);border-color:rgba(0,212,255,0.25);box-shadow:0 16px 32px rgba(0,0,0,0.3);}
+.ccard:hover::before{opacity:1;}
+.ccard-top{display:flex;justify-content:space-between;align-items:start;margin-bottom:12px;}
+.cnum{font-family:'JetBrains Mono',monospace;font-size:0.68rem;font-weight:600;color:var(--t3);}
+.cbadge{padding:3px 9px;border-radius:16px;font-size:0.65rem;font-weight:600;}
+.b-q{background:rgba(239,68,68,0.1);color:var(--red);}
+.b-o{background:rgba(245,158,11,0.1);color:var(--orange);}
+.b-d{background:rgba(16,185,129,0.1);color:var(--green);}
+.ctitle{font-size:0.95rem;font-weight:600;line-height:1.4;margin-bottom:12px;}
+.cmeta{display:flex;gap:14px;padding-top:12px;border-top:1px solid var(--border);font-size:0.75rem;color:var(--t2);}
+.cmeta svg{width:12px;height:12px;color:var(--t3);}
+.cmeta-item{display:flex;align-items:center;gap:4px;}
+.carrow{position:absolute;right:18px;bottom:18px;width:26px;height:26px;border-radius:7px;background:var(--glass);display:flex;align-items:center;justify-content:center;opacity:0;transform:translateX(-6px);transition:all 0.3s;}
+.carrow svg{width:12px;height:12px;}
+.ccard:hover .carrow{opacity:1;transform:translateX(0);background:var(--grad);color:#0a0e1a;}
+.weak-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;}
+.weak-item{background:rgba(239,68,68,0.04);border:1px solid rgba(239,68,68,0.1);border-radius:10px;padding:14px;display:flex;align-items:center;gap:12px;}
+.weak-icon{width:32px;height:32px;border-radius:8px;background:rgba(239,68,68,0.1);display:flex;align-items:center;justify-content:center;color:var(--red);flex-shrink:0;}
+.weak-icon svg{width:16px;height:16px;}
+.weak-name{font-size:0.82rem;font-weight:600;}
+.weak-count{font-size:0.7rem;color:var(--red);font-weight:600;}
+.empty{text-align:center;padding:36px;color:var(--t3);font-size:0.9rem;}
+.page{display:none;}
+.page.active{display:block;}
+.hist-item{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;transition:all 0.2s;}
+.hist-item:hover{border-color:rgba(255,255,255,0.15);}
+.hist-info{flex:1;}
+.hist-title{font-size:0.9rem;font-weight:600;margin-bottom:4px;}
+.hist-date{font-size:0.72rem;color:var(--t3);}
+.hist-result{padding:4px 12px;border-radius:16px;font-size:0.72rem;font-weight:600;}
+.hist-correct{background:rgba(16,185,129,0.12);color:var(--green);}
+.hist-wrong{background:rgba(239,68,68,0.12);color:var(--red);}
+@media(max-width:900px){.layout{grid-template-columns:1fr;}.sidebar{position:fixed;left:-260px;width:250px;z-index:100;transition:left 0.3s;}.sidebar.open{left:0;}.stats{grid-template-columns:1fr;}}
+</style>
 </head>
 <body>
-    <div class="mesh"></div>
-    <div class="grid"></div>
-    <div class="layout">
-        <aside class="sidebar">
-            <div class="logo">
-                <div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-                <div><h1>U-SMART</h1><p>USMLE Simulator</p></div>
-            </div>
-            <div class="nav-label">Asosiy</div>
-            <a class="nav-item active" onclick="showPage('dashboard',this)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                Dashboard
-            </a>
-            <a class="nav-item" onclick="showPage('allcases',this)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                Barcha Keyslar <span class="nav-badge" id="navTotal">20</span>
-            </a>
-            <a class="nav-item" onclick="showPage('history',this)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                Tarix
-            </a>
-            <div class="nav-label">O'rganish</div>
-            <a class="nav-item" href="/flashcards.html">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                Flashcards
-            </a>
-            <a class="nav-item" onclick="showPage('bookmarks',this)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
-                Bookmark
-            </a>
-            <div class="sidebar-footer">
-                <div class="user-card">
-                    <div class="user-avatar">TT</div>
-                    <div><div class="user-name">Talaba</div><div class="user-role">TTA</div></div>
-                </div>
-            </div>
-        </aside>
+<div class="mesh"></div>
+<div class="grid"></div>
+<div class="layout">
+<aside class="sidebar">
+<div class="logo">
+<div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+<div><h1>CardioPed Pro</h1><p>USMLE Simulator</p></div>
+</div>
+<div class="nav-label">Asosiy</div>
+<a class="nav-item active" onclick="showPage('dashboard',this)">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+Dashboard
+</a>
+<a class="nav-item" onclick="showPage('allcases',this)">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+Barcha Keyslar <span class="nav-badge" id="navTotal">20</span>
+</a>
+<a class="nav-item" onclick="showPage('history',this)">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+Tarix
+</a>
+<div class="nav-label">O'rganish</div>
+<a class="nav-item" href="/flashcards.html">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+Flashcards
+</a>
+<a class="nav-item" onclick="showPage('bookmarks',this)">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+Bookmark
+</a>
+<div class="sidebar-footer">
+<div class="user-card">
+<div class="user-avatar">TT</div>
+<div><div class="user-name">Talaba</div><div class="user-role">TTA</div></div>
+</div>
+</div>
+</aside>
 
-        <main class="main">
-            <!-- DASHBOARD PAGE -->
-            <div class="page active" id="page-dashboard">
-                <div class="topbar">
-                    <div><h2>Dashboard</h2><p>Klinik bilimlaringizni kuzating</p></div>
-                    <div style="display:flex;gap:8px">
-                        <button class="btn btn-ghost" onclick="resetProgress()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>Tozalash</button>
-                        <button class="btn btn-primary" onclick="startRandom()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>Boshlash</button>
-                    </div>
-                </div>
-                <div class="stats">
-                    <div class="scard scard-main">
-                        <div class="scard-head">
-                            <div class="sicon sicon-c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-                        </div>
-                        <div class="ring-wrap">
-                            <svg class="ring" width="100" height="100"><defs><linearGradient id="gr" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#00f5a0"/></linearGradient></defs><circle class="ring-bg" cx="50" cy="50" r="42" stroke-width="8" fill="none"/><circle class="ring-fill" cx="50" cy="50" r="42" stroke-width="8" fill="none" stroke-dasharray="263.9" stroke-dashoffset="263.9" id="ring"/></svg>
-                            <div><div class="slbl">Umumiy progress</div><div style="font-size:1.3rem;font-weight:800"><span id="pct">0</span>%</div><div class="slbl" style="margin-top:4px"><span id="solved">0</span> / <span id="total">20</span> keys</div></div>
-                        </div>
-                    </div>
-                    <div class="scard">
-                        <div class="scard-head"><div class="sicon sicon-g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div></div>
-                        <div class="sval" id="correctPct">0%</div><div class="slbl">To'g'ri javoblar</div>
-                    </div>
-                    <div class="scard">
-                        <div class="scard-head"><div class="sicon sicon-p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div></div>
-                        <div class="sval" id="aiChats">0</div><div class="slbl">AI suhbatlar</div>
-                    </div>
-                </div>
-                <div class="section">
-                    <div class="sec-head"><div class="sec-title"><div class="sec-icon" style="background:rgba(239,68,68,0.1);color:var(--red)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>Zaif tomonlar</div></div>
-                    <div class="weak-grid" id="weakGrid"><div class="empty" style="grid-column:1/-1">Hozircha zaif tomonlar yo'q</div></div>
-                </div>
-            </div>
+<main class="main">
+<div class="page active" id="page-dashboard">
+<div class="topbar">
+<div><h2>Dashboard</h2><p>Klinik bilimlaringizni kuzating</p></div>
+<div style="display:flex;gap:8px">
+<button class="btn btn-ghost" onclick="resetProgress()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>Tozalash</button>
+<button class="btn btn-primary" onclick="startRandom()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>Boshlash</button>
+</div>
+</div>
+<div class="stats">
+<div class="scard scard-main">
+<div class="scard-head"><div class="sicon sicon-c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div></div>
+<div class="ring-wrap">
+<svg class="ring" width="100" height="100"><defs><linearGradient id="gr" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#00f5a0"/></linearGradient></defs><circle class="ring-bg" cx="50" cy="50" r="42" stroke-width="8" fill="none"/><circle class="ring-fill" cx="50" cy="50" r="42" stroke-width="8" fill="none" stroke-dasharray="263.9" stroke-dashoffset="263.9" id="ring"/></svg>
+<div><div class="slbl">Umumiy progress</div><div style="font-size:1.3rem;font-weight:800"><span id="pct">0</span>%</div><div class="slbl" style="margin-top:4px"><span id="solved">0</span> / <span id="total">20</span> keys</div></div>
+</div>
+</div>
+<div class="scard">
+<div class="scard-head"><div class="sicon sicon-g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div></div>
+<div class="sval" id="correctPct">0%</div><div class="slbl">To'g'ri javoblar</div>
+</div>
+<div class="scard">
+<div class="scard-head"><div class="sicon sicon-p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div></div>
+<div class="sval" id="aiChats">0</div><div class="slbl">AI suhbatlar</div>
+</div>
+</div>
+<div class="section">
+<div class="sec-head"><div class="sec-title"><div class="sec-icon" style="background:rgba(239,68,68,0.1);color:var(--red)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>Zaif tomonlar</div></div>
+<div class="weak-grid" id="weakGrid"><div class="empty" style="grid-column:1/-1">Hozircha zaif tomonlar yo'q</div></div>
+</div>
+</div>
 
-            <!-- ALL CASES PAGE -->
-            <div class="page" id="page-allcases">
-                <div class="topbar"><div><h2>Barcha Keyslar</h2><p>Klinik keyslar ro'yxati</p></div></div>
-                <div class="tabs" id="tabs"></div>
-                <div class="cases" id="casesGrid"></div>
-            </div>
+<div class="page" id="page-allcases">
+<div class="topbar"><div><h2>Barcha Keyslar</h2><p>Klinik keyslar ro'yxati</p></div></div>
+<div class="tabs" id="tabs"></div>
+<div class="cases" id="casesGrid"></div>
+</div>
 
-            <!-- HISTORY PAGE -->
-            <div class="page" id="page-history">
-                <div class="topbar"><div><h2>Tarix</h2><p>Yechilgan keyslar tarixi</p></div></div>
-                <div id="historyList"><div class="empty">Hozircha tarix bo'sh</div></div>
-            </div>
+<div class="page" id="page-history">
+<div class="topbar"><div><h2>Tarix</h2><p>Yechilgan keyslar tarixi</p></div></div>
+<div id="historyList"><div class="empty">Hozircha tarix bo'sh</div></div>
+</div>
 
-            <!-- BOOKMARKS PAGE -->
-            <div class="page" id="page-bookmarks">
-                <div class="topbar"><div><h2>Bookmark</h2><p>Belgilangan keyslar</p></div></div>
-                <div class="cases" id="bookmarkGrid"><div class="empty">Hozircha bookmark yo'q</div></div>
-            </div>
-        </main>
-    </div>
+<div class="page" id="page-bookmarks">
+<div class="topbar"><div><h2>Bookmark</h2><p>Belgilangan keyslar</p></div></div>
+<div class="cases" id="bookmarkGrid"><div class="empty">Hozircha bookmark yo'q</div></div>
+</div>
+</main>
+</div>
 
-    <script>
-        let allCases = [];
-        function getProgress() { return JSON.parse(localStorage.getItem('usmle_progress') || '{}'); }
-        function getBookmarks() { return JSON.parse(localStorage.getItem('usmle_bookmarks') || '[]'); }
-        function resetProgress() { if(confirm('Progressni o\'chirmoqchimisiz?')) { localStorage.removeItem('usmle_progress'); localStorage.removeItem('usmle_ai_chats'); location.reload(); } }
-        function startRandom() { const p = getProgress(); const u = allCases.filter(c => !p[c.id]); window.location.href = '/simulator.html?id=' + (u.length > 0 ? u[0].id : allCases[0].id); }
-        function showPage(id, el) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById('page-' + id).classList.add('active');
-            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-            if(el) el.classList.add('active');
-            if(id === 'history') renderHistory();
-            if(id === 'bookmarks') renderBookmarks();
-        }
-        function renderHistory() {
-            const p = getProgress(); const el = document.getElementById('historyList');
-            const entries = Object.entries(p).sort((a,b) => b[1].time - a[1].time);
-            if(entries.length === 0) { el.innerHTML = '<div class="empty">Hozircha tarix bo\'sh</div>'; return; }
-            el.innerHTML = entries.map(([id, data]) => {
-                const c = allCases.find(x => x.id == id);
-                if(!c) return '';
-                const d = new Date(data.time);
-                return `<div class="hist-item"><div class="hist-info"><div class="hist-title">#${c.id} ${c.title}</div><div class="hist-date">${d.toLocaleDateString('uz')} ${d.toLocaleTimeString('uz')}</div></div><span class="hist-result ${data.correct ? 'hist-correct' : 'hist-wrong'}">${data.correct ? 'To\'g\'ri' : 'Noto\'g\'ri'}</span></div>`;
-            }).join('');
-        }
-        function renderBookmarks() {
-            const bm = getBookmarks(); const el = document.getElementById('bookmarkGrid');
-            if(bm.length === 0) { el.innerHTML = '<div class="empty">Hozircha bookmark yo\'q</div>'; return; }
-            el.innerHTML = bm.map(id => {
-                const c = allCases.find(x => x.id === id);
-                if(!c) return '';
-                const dc = c.difficulty === 'Qiyin' ? 'b-q' : 'b-o';
-                return `<a class="ccard" href="/simulator.html?id=${c.id}"><div class="ccard-top"><span class="cnum">CASE #${String(c.id).padStart(2,'0')}</span><span class="cbadge ${dc}">${c.difficulty}</span></div><div class="ctitle">${c.title}</div><div class="cmeta"><div class="cmeta-item"><span>${c.category}</span></div></div><div class="carrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div></a>`;
-            }).join('');
-        }
-        function renderCases(filter='all') {
-            const p = getProgress(); const g = document.getElementById('casesGrid'); g.innerHTML = '';
-            const f = filter === 'all' ? allCases : allCases.filter(c => c.category === filter);
-            f.forEach(c => {
-                const done = p[c.id]; const dc = c.difficulty === 'Qiyin' ? 'b-q' : 'b-o';
-                const db = done ? `<span class="cbadge b-d">Yechilgan</span>` : '';
-                g.innerHTML += `<a class="ccard" href="/simulator.html?id=${c.id}"><div class="ccard-top"><span class="cnum">CASE #${String(c.id).padStart(2,'0')}</span><div style="display:flex;gap:4px"><span class="cbadge ${dc}">${c.difficulty}</span>${db}</div></div><div class="ctitle">${c.title}</div><div class="cmeta"><div class="cmeta-item"><span>${c.category}</span></div><div class="cmeta-item"><span>${c.patient.age}</span></div></div><div class="carrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div></a>`;
-            });
-        }
-        fetch('/cases.json').then(r=>r.json()).then(data => {
-            allCases = data.cases;
-            const p = getProgress(); let solved=0, correct=0, errors={};
-            allCases.forEach(c => { const pr = p[c.id]; if(pr) { solved++; if(pr.correct) correct++; else errors[c.category] = (errors[c.category]||0)+1; } });
-            const pct = allCases.length > 0 ? Math.round(solved/allCases.length*100) : 0;
-            const cpct = solved > 0 ? Math.round(correct/solved*100) : 0;
-            document.getElementById('total').textContent = allCases.length;
-            document.getElementById('navTotal').textContent = allCases.length;
-            document.getElementById('solved').textContent = solved;
-            document.getElementById('pct').textContent = pct;
-            document.getElementById('correctPct').textContent = cpct + '%';
-            document.getElementById('aiChats').textContent = localStorage.getItem('usmle_ai_chats') || '0';
-            const ring = document.getElementById('ring');
-            const circ = 2 * Math.PI * 42;
-            setTimeout(() => { ring.style.strokeDashoffset = circ - (pct/100)*circ; }, 100);
-            const wg = document.getElementById('weakGrid');
-            if(Object.keys(errors).length > 0) {
-                wg.innerHTML = Object.entries(errors).sort((a,b)=>b[1]-a[1]).map(([cat,cnt]) => `<div class="weak-item"><div class="weak-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div><div class="weak-name">${cat}</div><div class="weak-count">${cnt} ta xato</div></div></div>`).join('');
-            }
-            const cats = [...new Set(allCases.map(c=>c.category))];
-            const tabs = document.getElementById('tabs');
-            tabs.innerHTML = `<button class="tab active" onclick="filterCases('all',this)">Barchasi</button>`;
-            cats.forEach(cat => { tabs.innerHTML += `<button class="tab" onclick="filterCases('${cat}',this)">${cat}</button>`; });
-            renderCases();
-        });
-        function filterCases(f, el) { document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active')); el.classList.add('active'); renderCases(f); }
-    </script>
+<script>
+let allCases=[];
+function getProgress(){return JSON.parse(localStorage.getItem('usmle_progress')||'{}');}
+function getBookmarks(){return JSON.parse(localStorage.getItem('usmle_bookmarks')||'[]');}
+function resetProgress(){if(confirm('Progressni o\'chirmoqchimisiz?')){localStorage.removeItem('usmle_progress');localStorage.removeItem('usmle_ai_chats');location.reload();}}
+function startRandom(){const p=getProgress();const u=allCases.filter(c=>!p[c.id]);window.location.href='/simulator.html?id='+(u.length>0?u[0].id:allCases[0].id);}
+function showPage(id,el){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));if(el)el.classList.add('active');if(id==='history')renderHistory();if(id==='bookmarks')renderBookmarks();}
+function renderHistory(){const p=getProgress();const el=document.getElementById('historyList');const entries=Object.entries(p).sort((a,b)=>b[1].time-a[1].time);if(entries.length===0){el.innerHTML='<div class="empty">Hozircha tarix bo\'sh</div>';return;}el.innerHTML=entries.map(([id,data])=>{const c=allCases.find(x=>x.id==id);if(!c)return '';const d=new Date(data.time);return `<div class="hist-item"><div class="hist-info"><div class="hist-title">#${c.id} ${c.title}</div><div class="hist-date">${d.toLocaleDateString('uz')} ${d.toLocaleTimeString('uz')}</div></div><span class="hist-result ${data.correct?'hist-correct':'hist-wrong'}">${data.correct?'To\'g\'ri':'Noto\'g\'ri'}</span></div>`;}).join('');}
+function renderBookmarks(){const bm=getBookmarks();const el=document.getElementById('bookmarkGrid');if(bm.length===0){el.innerHTML='<div class="empty">Hozircha bookmark yo\'q</div>';return;}el.innerHTML=bm.map(id=>{const c=allCases.find(x=>x.id===id);if(!c)return '';const dc=c.difficulty==='Qiyin'?'b-q':'b-o';return `<a class="ccard" href="/simulator.html?id=${c.id}"><div class="ccard-top"><span class="cnum">CASE #${String(c.id).padStart(2,'0')}</span><span class="cbadge ${dc}">${c.difficulty}</span></div><div class="ctitle">${c.title}</div><div class="cmeta"><div class="cmeta-item"><span>${c.category}</span></div></div><div class="carrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div></a>`;}).join('');}
+function renderCases(filter='all'){const p=getProgress();const g=document.getElementById('casesGrid');g.innerHTML='';const f=filter==='all'?allCases:allCases.filter(c=>c.category===filter);f.forEach(c=>{const done=p[c.id];const dc=c.difficulty==='Qiyin'?'b-q':'b-o';const db=done?`<span class="cbadge b-d">Yechilgan</span>`:'';g.innerHTML+=`<a class="ccard" href="/simulator.html?id=${c.id}"><div class="ccard-top"><span class="cnum">CASE #${String(c.id).padStart(2,'0')}</span><div style="display:flex;gap:4px"><span class="cbadge ${dc}">${c.difficulty}</span>${db}</div></div><div class="ctitle">${c.title}</div><div class="cmeta"><div class="cmeta-item"><span>${c.category}</span></div><div class="cmeta-item"><span>${c.patient.age}</span></div></div><div class="carrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div></a>`;});}
+fetch('/cases.json').then(r=>r.json()).then(data=>{allCases=data.cases;const p=getProgress();let solved=0,correct=0,errors={};allCases.forEach(c=>{const pr=p[c.id];if(pr){solved++;if(pr.correct)correct++;else errors[c.category]=(errors[c.category]||0)+1;}});const pct=allCases.length>0?Math.round(solved/allCases.length*100):0;const cpct=solved>0?Math.round(correct/solved*100):0;document.getElementById('total').textContent=allCases.length;document.getElementById('navTotal').textContent=allCases.length;document.getElementById('solved').textContent=solved;document.getElementById('pct').textContent=pct;document.getElementById('correctPct').textContent=cpct+'%';document.getElementById('aiChats').textContent=localStorage.getItem('usmle_ai_chats')||'0';const ring=document.getElementById('ring');const circ=2*Math.PI*42;setTimeout(()=>{ring.style.strokeDashoffset=circ-(pct/100)*circ;},100);const wg=document.getElementById('weakGrid');if(Object.keys(errors).length>0){wg.innerHTML=Object.entries(errors).sort((a,b)=>b[1]-a[1]).map(([cat,cnt])=>`<div class="weak-item"><div class="weak-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div><div class="weak-name">${cat}</div><div class="weak-count">${cnt} ta xato</div></div></div>`).join('');}const cats=[...new Set(allCases.map(c=>c.category))];const tabs=document.getElementById('tabs');tabs.innerHTML=`<button class="tab active" onclick="filterCases('all',this)">Barchasi</button>`;cats.forEach(cat=>{tabs.innerHTML+=`<button class="tab" onclick="filterCases('${cat}',this)">${cat}</button>`;});renderCases();});
+function filterCases(f,el){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');renderCases(f);}
+</script>
 </body>
 </html>
