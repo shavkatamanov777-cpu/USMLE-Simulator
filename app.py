@@ -6,8 +6,7 @@ import requests
 app = Flask(__name__, static_folder='.')
 CORS(app)
 
-# API kalitni environment variable'dan o'qish
-GROQ_API_KEY = os.environ.get('GROQ_API_KEY')
+GROQ_API_KEY = os.environ.get('GROQ_API_KEY', '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')
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 MODEL = "qwen/qwen3.8-27b"
 
