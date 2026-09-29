@@ -31,7 +31,7 @@
       ],
       "correct_option_index": 0,
       "correct_diagnosis": "Coarctation of the aorta (Aorta koarktatsiyasi)",
-      "explanation": "Chap 4-chi aorta ravogining meyordan ortiq yoki notog'ri involyutsiyasi hamda duktus arteriozus to'qimasining descending aorta devoriga qo'shilib qolib, uni toraytirishi yuqori tanada gipertenziya va pastki tanada gipotenziyaga, shuningdek kollateral qon aylanishi (interkostal arteriyalar kengayishi hisobiga) qovurg'alar eroziyasiga olib keladi."
+      "explanation": "Chap 4-chi aorta ravog'ining meyordan ortiq yoki notog'ri involyutsiyasi hamda duktus arteriozus to'qimasining descending aorta devoriga qo'shilib qolib, uni toraytirishi yuqori tanada gipertenziya va pastki tanada gipotenziyaga, shuningdek kollateral qon aylanishi (interkostal arteriyalar kengayishi hisobiga) qovurg'alar eroziyasiga olib keladi."
     },
     {
       "id": 2,
@@ -70,7 +70,7 @@
       "id": 3,
       "category": "Genitourinary System",
       "difficulty": "Qiyin",
-      "title": "Paramezonefrik yo'llar nuqsoni (MRKH)",
+      "title": "Paramezonefrik yo'llar nuqsoni (Mayer-Rokitansky-Küster-Hauser)",
       "patient": {
         "name": "Bemor qiz",
         "age": "17 yosh",
@@ -163,7 +163,7 @@
       ],
       "correct_option_index": 0,
       "correct_diagnosis": "Encephalocele",
-      "explanation": "Kranial (oldingi) neuroporning homiladorlikning 4-haftasida to'liq yopilmasligi Ensefalosele nuqsoniga sabab bo'ladi va doimo ona qonida AFP miqdorining oshishi bilan namoyon bo'ladi."
+      "explanation": "Kranial (oldingi) neuroporning homiladorlikning 4-haftasida (taxminan 25-kunlarda) to'liq yopilmasligi Ensefalosele nuqsoniga sabab bo'ladi va doimo ona qonida AFP miqdorining oshishi bilan namoyon bo'ladi."
     },
     {
       "id": 6,
@@ -196,7 +196,7 @@
       ],
       "correct_option_index": 0,
       "correct_diagnosis": "Meckel Diverticulum",
-      "explanation": "Meckel divertikuli vitellin yo'lning proksimal qismi obliteratsiyalanmay qolishi natijasida hosil bo'ladi. Ko'pincha tarkibida ektopik me'da shilliq qavati bo'lib, kislota ajratishi hisobiga yaralanish va qon ketishga olib keladi."
+      "explanation": "Meckel divertikuli vitellin (omfalomezenterik) yo'lning proksimal qismi obliteratsiyalanmay qolishi natijasida hosil bo'ladi. Ko'pincha tarkibida ektopik me'da shilliq qavati bo'lib, kislota ajratishi hisobiga yaralanish va qon ketishga olib keladi."
     },
     {
       "id": 7,
@@ -229,7 +229,7 @@
       ],
       "correct_option_index": 0,
       "correct_diagnosis": "Tetralogy of Fallot",
-      "explanation": "Aortopulmonal to'siqning noto'g'ri bo'linishi va spiral septumning oldinga siljishi o'pka stenosiga va qorinchalararo to'siq nuqsoniga olib keladi, bu esa Fallot tetradasini keltirib chiqaradi."
+      "explanation": "Aortopulmonal to'siqning noto'g'ri (notekis) bo'linishi va spiral septumning oldinga siljishi o'pka stenosiga va qorinchalararo to'siq nuqsoniga olib keladi, bu esa Fallot tetradasini keltirib chiqaradi."
     },
     {
       "id": 8,
@@ -390,7 +390,7 @@
         "Embrional davrda qalqonsimon bezning til tubidan bo'yinga tushish yo'lining (thyroglossal duct) yo'qolmay qolishi",
         "Ultimobronxial tanachalarning migratsiya buzilishi",
         "Birinchi jabra xaltachasining kistoz kengayishi",
-        "Paratsitol andokrin qoldig'i"
+        "Paratsitol endokrin qoldig'i"
       ],
       "correct_option_index": 0,
       "correct_diagnosis": "Thyroglossal Duct Cyst",
@@ -493,7 +493,7 @@
       ],
       "correct_option_index": 0,
       "correct_diagnosis": "Hypospadias",
-      "explanation": "Gipospadiya – uretral foldlarning o'zaro qo'shilishi buzilishi natijasida meatusning olatning ventral yuzasiga ochilishidir. Gormonal (androgen) yetishmovchilik ham sabab bo'lishi mumkin."
+      "explanation": "Gipospadiya - uretral foldlarning o'zaro qo'shilishi buzilishi natijasida meatusning olatning ventral yuzasiga ochilishidir. Gormonal (androgen) yetishmovchilik ham sabab bo'lishi mumkin."
     },
     {
       "id": 16,
