@@ -659,10 +659,8 @@
       "correct_option_index": 0,
       "correct_diagnosis": "Truncus Arteriosus",
       "explanation": "Neural crest hujayralarining migratsiyasi buzilishi natijasida truncus arteriosusni aorta va o'pka arteriyasiga bo'luvchi aortopulmonal septum hosil bo'lmaydi. Natijada bitta umumiy yirik tomir yurakdan chiqadi va har doim VSD bilan birga keladi."
-    }
-  ]
-},
-{
+    },
+    {
       "id": 21,
       "category": "Cardiovascular System",
       "difficulty": "Qiyin",
