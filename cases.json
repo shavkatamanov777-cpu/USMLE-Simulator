@@ -661,4 +661,40 @@
       "explanation": "Neural crest hujayralarining migratsiyasi buzilishi natijasida truncus arteriosusni aorta va o'pka arteriyasiga bo'luvchi aortopulmonal septum hosil bo'lmaydi. Natijada bitta umumiy yirik tomir yurakdan chiqadi va har doim VSD bilan birga keladi."
     }
   ]
+},
+{
+      "id": 21,
+      "category": "Cardiovascular System",
+      "difficulty": "Qiyin",
+      "title": "Truncus Arteriosus",
+      "patient": {
+        "name": "Chaqaloq",
+        "age": "2 kunlik",
+        "weight": "3.1 kg",
+        "chief_complaint": "Tug'ruqxonada aniqlangan kuchli tsianoz, yurakda qo'pol sistolik shovqin va yurak yetishmovchiligi."
+      },
+      "vitals": {
+        "temperature": "36.5°C",
+        "respiratory_rate": "55 /min",
+        "heart_rate": "160 /min",
+        "spo2": "78%",
+        "bp": "80/45 mmHg"
+      },
+      "labs": {
+        "echo_cg": "Yurakdan bitta yirik umumiy qon tomir chiqib, ham tizimli, ham o'pka, ham koronar qon aylanishini ta'minlaydi; VSD mavjud",
+        "rentgen": "O'pka qon oqimining keskin oshishi va yurak soyasining kattalashishi,kayfiyatlar yaxshimi",
+        "ekg": "Ikki qorincha gipertrofiyasi"
+      },
+      "options": [
+        "Aortopulmonal septaning truncus arteriosus ichida umuman rivojlanmagani va bo'linmagani",
+        "Bland-White-Garland sindromi",
+        "Tricuspid atreziya",
+        "Ebstein anomaliyasi"
+      ],
+      "correct_option_index": 0,
+      "correct_diagnosis": "Truncus Arteriosus",
+      "explanation": "Neural crest hujayralarining migratsiyasi buzilishi natijasida truncus arteriosusni aorta va o'pka arteriyasiga bo'luvchi aortopulmonal septum hosil bo'lmaydi. Natijada bitta umumiy yirik tomir yurakdan chiqadi va har doim VSD bilan birga keladi."
+    }
+  ]
 }
+
